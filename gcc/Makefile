@@ -116,27 +116,27 @@ OBJS_AS_ARGS +=  \
 
 # List the directories containing header files
 DIR_INCLUDES +=  \
--I"../" \
--I"../config" \
--I"../examples" \
--I"../hal/include" \
--I"../hal/utils/include" \
--I"../hpl/adc" \
--I"../hpl/cmcc" \
--I"../hpl/core" \
--I"../hpl/dmac" \
--I"../hpl/gclk" \
--I"../hpl/mclk" \
--I"../hpl/osc32kctrl" \
--I"../hpl/oscctrl" \
--I"../hpl/pm" \
--I"../hpl/port" \
--I"../hpl/ramecc" \
--I"../hpl/sercom" \
--I"../hri" \
--I"../" \
--I"../CMSIS/Core/Include" \
--I"../include"
+-I"./" \
+-I"./config" \
+-I"./examples" \
+-I"./hal/include" \
+-I"./hal/utils/include" \
+-I"./hpl/adc" \
+-I"./hpl/cmcc" \
+-I"./hpl/core" \
+-I"./hpl/dmac" \
+-I"./hpl/gclk" \
+-I"./hpl/mclk" \
+-I"./hpl/osc32kctrl" \
+-I"./hpl/oscctrl" \
+-I"./hpl/pm" \
+-I"./hpl/port" \
+-I"./hpl/ramecc" \
+-I"./hpl/sercom" \
+-I"./hri" \
+-I"./" \
+-I"./CMSIS/Core/Include" \
+-I"./include"
 
 # List the dependency files
 DEPS := $(OBJS:%.o=%.d)
@@ -192,10 +192,10 @@ $(OUTPUT_FILE_PATH): $(OBJS)
 	@echo Building target: $@
 	@echo Invoking: ARM/GNU Linker
 	$(QUOTE)arm-none-eabi-gcc$(QUOTE) -o $(OUTPUT_FILE_NAME).elf $(OBJS_AS_ARGS) -Wl,--start-group -lm -Wl,--end-group -mthumb \
--Wl,-Map="$(OUTPUT_FILE_NAME).map" --specs=nano.specs -Wl,--gc-sections -mcpu=cortex-m4 \
+-Wl,-Map="$(OUTPUT_FILE_NAME).map" -Wl,--gc-sections -mcpu=cortex-m4 \
  \
--T"../gcc/gcc/same54p20a_flash.ld" \
--L"../gcc/gcc"
+-T"./gcc/gcc/same54p20a_flash.ld" \
+-L"./gcc/gcc"
 	@echo Finished building target: $@
 
 	"arm-none-eabi-objcopy" -O binary "$(OUTPUT_FILE_NAME).elf" "$(OUTPUT_FILE_NAME).bin"
@@ -207,7 +207,6 @@ $(OUTPUT_FILE_PATH): $(OBJS)
 	"arm-none-eabi-objdump" -h -S "$(OUTPUT_FILE_NAME).elf" > "$(OUTPUT_FILE_NAME).lss"
 	"arm-none-eabi-size" "$(OUTPUT_FILE_NAME).elf"
 
-	
 
 # Compiler targets
 
