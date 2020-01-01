@@ -67,6 +67,8 @@ hpl/ramecc/hpl_ramecc.o \
 hal/src/hal_init.o \
 gcc/gcc/startup_same54.o \
 main.o \
+led.o \
+display.o \
 hpl/osc32kctrl/hpl_osc32kctrl.o \
 examples/driver_examples.o \
 driver_init.o \
@@ -100,6 +102,8 @@ OBJS_AS_ARGS +=  \
 "hal/src/hal_init.o" \
 "gcc/gcc/startup_same54.o" \
 "main.o" \
+"led.o" \
+"display.o" \
 "hpl/osc32kctrl/hpl_osc32kctrl.o" \
 "examples/driver_examples.o" \
 "driver_init.o" \
@@ -163,6 +167,8 @@ DEPS_AS_ARGS +=  \
 "hal/src/hal_adc_sync.d" \
 "hpl/osc32kctrl/hpl_osc32kctrl.d" \
 "main.d" \
+"led.d" \
+"display.d" \
 "examples/driver_examples.d" \
 "hal/src/hal_cache.d" \
 "hal/src/hal_sleep.d" \
