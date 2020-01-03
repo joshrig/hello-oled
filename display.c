@@ -102,6 +102,8 @@ void display_init
         0x20, 0x00,       // Horizontal address mode
         0x22, 0x00, 0x03, // Set the end page to 3 (our display has 4 pages)
 
+        0xD5, 0xF0,       // Set max oscillator frequency
+        
         0x8D, 0x14,       // Enable charge pump
 
         0xAF              // Set Display On in normal mode
@@ -119,8 +121,8 @@ void display_clear(void)
 
     memset(me->framebuf, 0, sizeof(me->framebuf));
 
-    gpio_set_pin_level(me->data_cmd_sel_line, DATA);
-    io_write(me->io, me->framebuf, sizeof(me->framebuf));
+    // gpio_set_pin_level(me->data_cmd_sel_line, DATA);
+    // io_write(me->io, me->framebuf, sizeof(me->framebuf));
 }
 
 

@@ -27,7 +27,7 @@ int main(void)
 
         
         // systick interrupts every ~500ms (for a 12MHz clock)
-        SysTick_Config(6000000);
+        SysTick_Config(600000);
 
 
         // wait for an interrupt.
